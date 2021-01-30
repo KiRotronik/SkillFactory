@@ -63,7 +63,6 @@ def check_win():
    simb = []
    for i in range(3):
        simb.append(field[i][2-i])
-       3 1 2 2 1 3
    if simb == ['X', 'X', 'X']:
        print('X is win!!!')
        return True
