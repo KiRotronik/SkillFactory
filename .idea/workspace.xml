@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68ad3f87-93f7-461b-9ef4-1b9113d476db" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/SkillFactory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SkillFactory.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tic_tac_toe.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tic_tac_toe.py" afterDir="false" />
     </list>
@@ -29,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Download/b5.6" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Download/b5.6" />
   </component>
   <component name="RunManager">
     <configuration name="Tic_tac_toe" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -39,9 +41,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\79650\Desktop\Kir\Git\SkillFactory\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tic_tac_toe.py" />
@@ -59,7 +61,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -72,47 +74,5 @@
       <updated>1611406931886</updated>
     </task>
     <servers />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="692" y="74" key="#Tic_tac_toe" timestamp="1611565697914">
-      <screen x="0" y="0" width="1680" height="968" />
-    </state>
-    <state x="692" y="74" key="#Tic_tac_toe/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1611565697914" />
-    <state x="762" y="234" key="FileChooserDialogImpl" timestamp="1611578352751">
-      <screen x="0" y="0" width="1680" height="968" />
-    </state>
-    <state x="762" y="234" key="FileChooserDialogImpl/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1611578352751" />
-    <state width="1223" height="242" key="GridCell.Tab.0.bottom" timestamp="1611839161728">
-      <screen x="0" y="0" width="1680" height="968" />
-    </state>
-    <state width="1223" height="242" key="GridCell.Tab.0.bottom/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1611839161728" />
-    <state width="1223" height="242" key="GridCell.Tab.0.center" timestamp="1611839161728">
-      <screen x="0" y="0" width="1680" height="968" />
-    </state>
-    <state width="1223" height="242" key="GridCell.Tab.0.center/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1611839161728" />
-    <state width="1223" height="242" key="GridCell.Tab.0.left" timestamp="1611839161728">
-      <screen x="0" y="0" width="1680" height="968" />
-    </state>
-    <state width="1223" height="242" key="GridCell.Tab.0.left/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1611839161728" />
-    <state width="1223" height="242" key="GridCell.Tab.0.right" timestamp="1611839161728">
-      <screen x="0" y="0" width="1680" height="968" />
-    </state>
-    <state width="1223" height="242" key="GridCell.Tab.0.right/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1611839161728" />
-    <state width="1223" height="255" key="GridCell.Tab.1.bottom" timestamp="1611579046574">
-      <screen x="0" y="0" width="1680" height="968" />
-    </state>
-    <state width="1223" height="255" key="GridCell.Tab.1.bottom/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1611579046574" />
-    <state width="1223" height="255" key="GridCell.Tab.1.center" timestamp="1611579046574">
-      <screen x="0" y="0" width="1680" height="968" />
-    </state>
-    <state width="1223" height="255" key="GridCell.Tab.1.center/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1611579046574" />
-    <state width="1223" height="255" key="GridCell.Tab.1.left" timestamp="1611579046574">
-      <screen x="0" y="0" width="1680" height="968" />
-    </state>
-    <state width="1223" height="255" key="GridCell.Tab.1.left/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1611579046574" />
-    <state width="1223" height="255" key="GridCell.Tab.1.right" timestamp="1611579046574">
-      <screen x="0" y="0" width="1680" height="968" />
-    </state>
-    <state width="1223" height="255" key="GridCell.Tab.1.right/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1611579046574" />
   </component>
 </project>

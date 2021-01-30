@@ -27,19 +27,53 @@ def enter_cords():
         if 1 > x or x > 3 or 1 > y or y > 3:
             print("Enter x and y greater than 0 and less than 4")
             continue
-        if field[x-1][y-1] != ' ':
+        if field[y-1][x-1] != ' ':
             print("Cell is occupied")
             continue
         else:
             return x, y
 
-
-
+def check_win():
+   for i in range(3):
+      if field[i] == ['X', 'X', 'X']:
+         print('X is win!!!')
+         return True
+      if field[i] == ['0', '0', '0']:
+         print('0 is win!!!')
+         return True
+   for i in range(3):
+       simb = []
+       for j in range(3):
+           simb.append(field[j][i])
+       if simb == ['X', 'X', 'X']:
+           print('X is win!!!')
+           return True
+       if simb == ['0', '0', '0']:
+           print('0 is win!!!')
+           return True
+   simb = []
+   for i in range(3):
+       simb.append(field[i][i])
+   if simb == ['X', 'X', 'X']:
+       print('X is win!!!')
+       return True
+   if simb == ['0', '0', '0']:
+       print('0 is win!!!')
+       return True
+   simb = []
+   for i in range(3):
+       simb.append(field[i][2-i])
+       3 1 2 2 1 3
+   if simb == ['X', 'X', 'X']:
+       print('X is win!!!')
+       return True
+   if simb == ['0', '0', '0']:
+       print('0 is win!!!')
+       return True
 
 startgreet()
 
 field = [[' ']*3 for i in range(3)]
-
 
 num_move = 0
 while True:
@@ -54,6 +88,9 @@ while True:
         field[y-1][x-1] = 'X'
     else:
         field[y-1][x-1] = '0'
+    if check_win():
+        show_field()
+        break
     if num_move == 9:
         print('Draw!!!')
         break
