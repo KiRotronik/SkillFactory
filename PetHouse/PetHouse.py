@@ -3,4 +3,3 @@ class Cat():
         self.name = name
         self.sex = sex
         self.age = age
-        
