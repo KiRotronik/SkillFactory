@@ -20,14 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68ad3f87-93f7-461b-9ef4-1b9113d476db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/PetHouse/Cat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/practice_16/rectangle.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/practice_16/trstRectangle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SkillFactory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SkillFactory.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/practice_16/testRectangle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_practice/figures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_practice/figures_2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetHouse.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetHouse/PetHouse.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rectangle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice_16/trstRectangle.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,15 +57,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Download/b5.6" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/python_practice" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\My\Coding\GIT\SkillFactory\python_practice" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\My\Coding\GIT\SkillFactory\PetHouse" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Cat">
+  <component name="RunManager" selected="Python.figures_2 (1)">
     <configuration name="Cat" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SkillFactory" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -111,7 +111,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PetHouse" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="figures_2 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SkillFactory" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -119,11 +119,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_practice" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="G:\My\Coding\GIT\SkillFactory\PetHouse\PetHouse.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_practice/figures_2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -132,19 +132,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Tic_tac_toe" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="figures_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SkillFactory" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="G:\My\Courses\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_practice" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tic_tac_toe.py" />
+      <option name="SCRIPT_NAME" value="G:\My\Coding\GIT\SkillFactory\python_practice\figures_2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,7 +153,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="trstRectangle" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="testRectangle" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SkillFactory" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -165,7 +165,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice_16/trstRectangle.py" />
+      <option name="SCRIPT_NAME" value="G:\My\Coding\GIT\SkillFactory\practice_16\testRectangle.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -176,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.figures_2 (1)" />
+        <item itemvalue="Python.figures_2" />
+        <item itemvalue="Python.testRectangle" />
         <item itemvalue="Python.Cat" />
         <item itemvalue="Python.PetHouse (1)" />
-        <item itemvalue="Python.trstRectangle" />
-        <item itemvalue="Python.Tic_tac_toe" />
-        <item itemvalue="Python.PetHouse" />
       </list>
     </recent_temporary>
   </component>
@@ -215,22 +215,22 @@
       <screen x="0" y="0" width="1680" height="968" />
     </state>
     <state x="583" y="35" key="#Tic_tac_toe/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1612186934455" />
-    <state width="1223" height="238" key="GridCell.Tab.0.bottom" timestamp="1612190168018">
+    <state width="1223" height="238" key="GridCell.Tab.0.bottom" timestamp="1612359893332">
       <screen x="0" y="0" width="1680" height="968" />
     </state>
-    <state width="1223" height="238" key="GridCell.Tab.0.bottom/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1612190168018" />
-    <state width="1223" height="238" key="GridCell.Tab.0.center" timestamp="1612190168018">
+    <state width="1223" height="238" key="GridCell.Tab.0.bottom/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1612359893332" />
+    <state width="1223" height="238" key="GridCell.Tab.0.center" timestamp="1612359893332">
       <screen x="0" y="0" width="1680" height="968" />
     </state>
-    <state width="1223" height="238" key="GridCell.Tab.0.center/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1612190168018" />
-    <state width="1223" height="238" key="GridCell.Tab.0.left" timestamp="1612190168018">
+    <state width="1223" height="238" key="GridCell.Tab.0.center/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1612359893332" />
+    <state width="1223" height="238" key="GridCell.Tab.0.left" timestamp="1612359893331">
       <screen x="0" y="0" width="1680" height="968" />
     </state>
-    <state width="1223" height="238" key="GridCell.Tab.0.left/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1612190168018" />
-    <state width="1223" height="238" key="GridCell.Tab.0.right" timestamp="1612190168018">
+    <state width="1223" height="238" key="GridCell.Tab.0.left/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1612359893331" />
+    <state width="1223" height="238" key="GridCell.Tab.0.right" timestamp="1612359893332">
       <screen x="0" y="0" width="1680" height="968" />
     </state>
-    <state width="1223" height="238" key="GridCell.Tab.0.right/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1612190168018" />
+    <state width="1223" height="238" key="GridCell.Tab.0.right/0.0.1680.968/-1920.-30.1920.1040@0.0.1680.968" timestamp="1612359893332" />
     <state width="1223" height="255" key="GridCell.Tab.1.bottom" timestamp="1612190168015">
       <screen x="0" y="0" width="1680" height="968" />
     </state>
