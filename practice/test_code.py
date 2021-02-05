@@ -8,6 +8,7 @@ class Sup(Event):
         super().__init__(name)
         self.f = family
 
+
 test = Sup('Serge', 'Super')
 
-print(test.name)
+print(test.n)
