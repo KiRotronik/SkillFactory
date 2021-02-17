@@ -1,18 +1,18 @@
-a = 
+class Moon:
+
+    def __eq__(self, other):
+        return self.value == other
 
 
+class Earth:
+
+    def __eq__(self, other):
+        return self.value == other
 
 
+a = Earth()
+b = Moon()
 
-
-
-try:
-
-
-    if age > 100 or age <= 0:
-        raise ValueError("Тебе не может быть столько лет")
-
-    # Возраст выводится только если пользователь ввёл правильный возраст.
-    print(f"Тебе {age} лет!")
-except ValueError:
-    print("Неправильный возраст")
+a.value = 3
+b.value = 3
+print(a == b)
