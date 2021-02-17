@@ -1,15 +1,18 @@
-class Event:
-    def __init__(self, name, pame):
-        self.n = name
-        self.p = pame
+a = 
 
 
-class Sup(Event):
-    def __init__(self, name, pame, family):
-        super().__init__(name, pame)
-        self.f = family
 
 
-test = Sup('Serge', 'Super', 'Super')
 
-print(test.n)
+
+
+try:
+
+
+    if age > 100 or age <= 0:
+        raise ValueError("Тебе не может быть столько лет")
+
+    # Возраст выводится только если пользователь ввёл правильный возраст.
+    print(f"Тебе {age} лет!")
+except ValueError:
+    print("Неправильный возраст")
