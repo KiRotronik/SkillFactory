@@ -1,15 +1,12 @@
-class Event:
-    def __init__(self, name, pame):
-        self.n = name
-        self.p = pame
+class SquareFactory:
+    @staticmethod
+    def side(a):
+        return Square(a)
 
+class Square:
+    def __init__(self, sa):
+        self.sname = sa
 
-class Sup(Event):
-    def __init__(self, name, pame, family):
-        super().__init__(name, pame)
-        self.f = family
+pp = SquareFactory.side('5')
+print(pp.sname)
 
-
-test = Sup('Serge', 'Super', 'Super')
-
-print(test.n)
