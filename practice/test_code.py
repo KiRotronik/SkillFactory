@@ -1,8 +1,9 @@
 class Player:
 
 
-    def move(self):
+    def move():
         a, b = User.ask()
+
         return a, b
 
 
