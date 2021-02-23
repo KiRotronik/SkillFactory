@@ -1,32 +1,22 @@
-class Player:
+class Board:
+    def __init__(self, hid=False, size=6):
+        self.size = size
+        self.hid = hid
 
+        self.count = 0
+        self.field = [['O']* self.size for i in range(self.size)]
+        self.ships =[]
+        self.busy = []
 
-    def move():
-        a, b = User.ask()
+    def __str__(self):
+        res = "     1   2   3   4   5   6  "
+        for i, row in enumerate(self.field):
+            res += f"\n {i+1} | " + " | ".join(row) + " |"
 
-        return a, b
+        if self.hid:
+            res = res.replace("■", "0")
 
+        return res
 
-
-class User(Player):
-    @staticmethod
-    def ask():
-        while True:
-            cords = input("Enter x,y coordinates for shoot").split()
-            if len(cords) != 2:
-                print("Enter two digits from 1 to 6")
-                continue
-            x, y = cords
-            if not x.isdigit() and y.isdigit():
-                print("Enter two digits from 1 to 6")
-                continue
-            x, y = int(x), int(y)
-            if x < 1 or x > 6 and y < 1 or y > 6:
-                print("Enter two digits from 1 to 6")
-                continue
-            else:
-                return x, y
-
-print(Player.move())
-
-
+b = Board()
+print(b)
