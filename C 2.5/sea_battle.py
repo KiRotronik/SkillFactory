@@ -59,8 +59,15 @@ class Board:
         for i, row in enumerate(self.field):
             res += f"\n {i+1} + row"
 
-    def add_ship(self):
-    def contour(self):
+    def add_ship(self, ship):
+        for d in ship.dots:
+            if self.out(d) or d in self.busy:
+                return BoardOutException
+
+    def contour(self, ship, verb=False):
+        near = []
+        for d in ship
+
     def visible(self):
         if not hid:
 
