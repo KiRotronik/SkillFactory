@@ -1,18 +1,22 @@
-class Moon:
+class Board:
+    def __init__(self, hid=False, size=6):
+        self.size = size
+        self.hid = hid
 
-    def __eq__(self, other):
-        return self.value == other
+        self.count = 0
+        self.field = [['O']* self.size for i in range(self.size)]
+        self.ships =[]
+        self.busy = []
 
+    def __str__(self):
+        res = "     1   2   3   4   5   6  "
+        for i, row in enumerate(self.field):
+            res += f"\n {i+1} | " + " | ".join(row) + " |"
 
-class Earth:
+        if self.hid:
+            res = res.replace("■", "0")
 
-    def __eq__(self, other):
-        return self.value == other
+        return res
 
-
-a = Earth()
-b = Moon()
-
-a.value = 3
-b.value = 3
-print(a == b)
+b = Board()
+print(b)
