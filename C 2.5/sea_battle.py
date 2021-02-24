@@ -50,7 +50,7 @@ class Board:
         self.hid = hid
 
         self.count = 0
-        self.field = [['O']* self.size for i in range(self.size)]
+        self.field = [['O']* self.size for _ in range(self.size)]
         self.ships =[]
         self.busy = []
 
@@ -58,13 +58,16 @@ class Board:
         res = "    1   2   3   4   5   6  "
         for i, row in enumerate(self.field):
             res += f"\n {i+1} + row"
+
     def add_ship(self):
     def contour(self):
     def visible(self):
         if not hid:
 
 
-    def out(self):
+    def out(self, d):
+        return not ((0 <= d.x < self.size) and (0 <= d.y < self.size))
+    
     def shot(self, x, y):
         self.x = x
         self.y = y
