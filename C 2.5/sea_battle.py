@@ -55,25 +55,36 @@ class Board:
         self.busy = []
 
     def __str__(self):
-        res = "    1   2   3   4   5   6  "
+        res = "     1   2   3   4   5   6  "
         for i, row in enumerate(self.field):
-            res += f"\n {i+1} + row"
+            res += f"\n {i + 1} | " + " | ".join(row) + " |"
+
+        if self.hid:
+            res = res.replace("■", "0")
+
+        return res
 
     def add_ship(self, ship):
-        for d in ship.dots:
-            if self.out(d) or d in self.busy:
+        for dt in ship.dots:
+            if self.out(dt) or dt in self.busy:
                 return BoardOutException
 
     def contour(self, ship, verb=False):
-        near = []
-        for d in ship
+        near = [
+            (-1, -1), (0, -1), (1, -1),
+            (-1, 0), (0, 0), (1, 0),
+            (-1, 1), (0, 1), (1, 1)
+        ]
+        for d in ship.dots:
+            for dx, dy in near:
+                cur = Dot(d.x + dx, d.y + dy)
+                if not (self.out(cur)) and cur not in self.busy:
+                    if verb:
+                        self.field[cur.x][cur.y] = '.'
+                    self.busy.append(cur)
 
-    def visible(self):
-        if not hid:
-
-
-    def out(self, d):
-        return not ((0 <= d.x < self.size) and (0 <= d.y < self.size))
+    def out(self, dot):
+        return not ((0 <= dot.x < self.size) and (0 <= dot.y < self.size))
     
     def shot(self, x, y):
         self.x = x
