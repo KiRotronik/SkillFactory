@@ -151,6 +151,3 @@ class Game:
     def greet(self):
     def loop(self):
     def start(self):
-
-d = Dot()
-print(d)
