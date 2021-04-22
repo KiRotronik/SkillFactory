@@ -137,6 +137,9 @@ class Board:
     def begin(self):
         self.busy = []
 
+    def defeat(self):
+        return self.count == len(self.ships)
+
 
 class Player:
     def __init__(self, board, enemy):
@@ -176,9 +179,9 @@ class User(Player):
             return Dot(x - 1, y - 1)
 
 
-class Ai(Player):
+class AI(Player):
     def ask(self):
-        d = Dot(randint(0, 5), randint(0, 5)
+        d = Dot(randint(0, 5), randint(0, 5))
         print(f"Ai move: {d.x + 1} {d.y + 1}")
         return d
 
@@ -186,29 +189,90 @@ class Ai(Player):
 
 
 class Game:
+    def __init__(self, size = 6,):
+        self.size = size
+        self.lens = [3, 2, 2, 1, 1, 1, 1]
+        player = self.random_board()
+        comp = self.random_board()
+        comp.hid = 1
+
+        self.ai = AI(comp, player)
+        self.us = User(player, comp)
+
     def try_board(self):
-        lens = [3, 2, 2, 1, 1, 1, 1]
         board = Board(size = self.size)
-        attemps = 0
+        attempts = 0
         for l in lens:
             while True:
-                attemps += 1
-                if attemps > 2000:
+                attempts += 1
+                if attempts > 2000:
                     return None
-                ship = Ship(Dot(randint(0, self.size), randint(0, self.size), l, randint(0, 1)))
+                ship = Ship(Dot(randint(0, self.size), randint(0, self.size)), l, randint(0, 1))
                 try:
                     board.add_ship(ship)
+                    break
+                except BoardWrongShipException:
+                    pass
+        board.begin()
+        return board
 
-    def welcome(self):
+    def random_board(self):
+        board = None
+        while board is None:
+            board = self.try_board()
+        return board
+
+    def welcom(self):
         print("---------------")
         print("--- Welcome ---")
         print("----- to ------")
         print("- SEA BATTLE --")
         print("---- GAME! ----")
         print("---------------")
+        print("- x - stroke  -")
+        print("- y - column  -")
+        print("---------------")
 
-    def random_board(self):
+    def print_board(self):
+        print("-" * 20)
+        print("User`s board:")
+        print(self.us.board)
+        print("-" * 20)
+        print("Ai`s board:")
+        print(self.ai.board)
 
-    def greet(self):
+
     def loop(self):
+        num = 0
+        while True:
+            self.print_board()
+            if num % 2 == 0:
+                print("User`s move")
+                repeat = self.us.move()
+            else:
+                print("Ai`s move")
+                repeat = self.ai.move()
+            if repeat:
+                num -= 1
+
+            if self.ai.board.defeat():
+                self.print_board()
+                print("-" * 20)
+                print("User win!")
+                break
+
+            if self.us.board.defeat():
+                self.print_board()
+                print("-" * 20)
+                print("AI win!")
+                break
+
+            num += 1
+
     def start(self):
+        self.welcom()
+        self.loop()
+
+
+g = Game()
+g.start()
