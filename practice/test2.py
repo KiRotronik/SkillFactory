@@ -9,35 +9,41 @@ class Queue:
         self.head = 0  # указатель на начало очереди
         self.tail = 0  # указатель на элемент следующий за концом очереди
 
-    # Проверям наличие элементов в очереди через указатели начала и конца очереди
-    def is_empty(self):
+    def is_empty(self):  # очередь пуста?
+    # да, если указатели совпадают и в них содержится ноль
         return self.head == self.tail and self.tasks[self.head] == 0
-    # Узнаем размер очереди
-    def size(self):
-        if self.is_empty() == 0:
-            return 0
-        elif self.tail == self.head:
-            return self.max_size
-        elif self.head > self.tail:
+
+    def size(self):  # получаем размер очереди
+        if self.is_empty():  # если она пуста
+            return 0  # возвращаем ноль
+        elif self.head == self.tail:  # иначе, если очередь не пуста, но указатели совпадают
+            return self.max_size  # значит очередь заполнена
+        elif self.head > self.tail:  # если хвост очереди сместился в начало списка
             return self.max_size - self.head + self.tail
-        else:
+        else:  # или если хвост стоит правее начала
             return self.tail - self.head
-    # добавляем задачу
+
     def add(self):
-        self.task_num += 1
-        self.tasks[self.tail] = self.task_num
-        print(f"Задача {self.tasks[self.tail]} добавлена")
-        # увеличиваем указатель на 1 по модулю максимального числа элементов
-        # для зацикливания очереди в списке
+        self.task_num += 1  # увеличиваем порядковый номер задачи
+
+        self.tasks[self.tail] = self.task_num  # добавляем его в очередь
+        print(f"Задача №{self.tasks[self.tail]} добавлена")
+
+    # увеличиваем указатель на 1 по модулю максимального числа элементов
+    # для зацикливания очереди в списке
         self.tail = (self.tail + 1) % self.max_size
-    # Метод для выведения приоритетной задачи
-    def show(self):
-        print(f"Задача {self.tasks[self.head]} в приоритете")
-    # метод выполняющий задачу
-    def do(self):
-        print(f"Задача {self.tasks[self.head]} выполнена")
+
+    def show(self):  # выводим приоритетную задачу
+        print(f"Задача №{self.tasks[self.head]} в приоритете")
+
+    def do(self):  # выполняем приоритетную задачу
+        print(f"Задача №{self.tasks[self.head]} выполнена")
+
+    # после выполнения зануляем элемент по указателю
         self.tasks[self.head] = 0
+    # и циклично перемещаем указатель
         self.head = (self.head + 1) % self.max_size
+
 
 # Используем класс
 size = int(input("Определите размер очереди: "))

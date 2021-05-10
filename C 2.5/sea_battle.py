@@ -1,4 +1,4 @@
-import random
+from random import randint
 
 
 class BoardException(Exception):
@@ -13,7 +13,6 @@ class BoardOutException(BoardException):
 class BoardUsedException(BoardException):
     def __str__(self):
         return "You've already shot this cage"
-
 
 class BoardWrongShipException(BoardException):
     pass
@@ -59,16 +58,14 @@ class Ship:
         return shot in self.dots
 
 
-
-
 class Board:
     def __init__(self, hid=False, size=6):
         self.size = size
         self.hid = hid
 
         self.count = 0
-        self.field = [['O'] * self.size for _ in range(self.size)]
-        self.ships = []
+        self.field = [['O']* self.size for _ in range(self.size)]
+        self.ships =[]
         self.busy = []
 
     def __str__(self):
@@ -81,23 +78,16 @@ class Board:
 
         return res
 
-    def add_ship(self, ship):
-        for dt in ship.dots:
-            if self.out(dt) or dt in self.busy:
-                raise BoardWrongShipException()
-        for dt in ship.dots:
-            self.field[dt.x][dt.y] = "■"
-            self.busy.append(dt)
 
-        self.ships.append(ship)
-        self.contour(ship)
+    def out(self, dot):
+        return not ((0 <= dot.x < self.size) and (0 <= dot.y < self.size))
 
 
     def contour(self, ship, verb=False):
         near = [
-            (-1, -1), (0, -1), (1, -1),
-            (-1, 0), (0, 0), (1, 0),
-            (-1, 1), (0, 1), (1, 1)
+            (-1, -1), (-1, 0), (-1, 1),
+            (0, -1), (0, 0), (0, 1),
+            (1, -1), (1, 0), (1, 1)
         ]
         for d in ship.dots:
             for dx, dy in near:
@@ -107,36 +97,49 @@ class Board:
                         self.field[cur.x][cur.y] = '.'
                     self.busy.append(cur)
 
-    def out(self, dot):
-        return not ((0 <= dot.x < self.size) and (0 <= dot.y < self.size))
+    def add_ship(self, ship):
+        for d in ship.dots:
+            if self.out(d) or d in self.busy:
+                raise BoardWrongShipException()
+        for d in ship.dots:
+            self.field[d.x][d.y] = "■"
+            self.busy.append(d)
+
+        self.ships.append(ship)
+        self.contour(ship)
 
     def shot(self, d):
         if self.out(d):
-            raise BoardOutException
+            raise BoardOutException()
+
         if d in self.busy:
-            raise BoardOutException
+            raise BoardUsedException()
 
         self.busy.append(d)
 
         for ship in self.ships:
             if ship.shooten(d):
-                ship.life -= 1
-                self.field[d.x][d.y] = "X"
-                if ship.life == 0:
+                ship.lives -= 1
+                self.field[d.x][d.y] = 'X'
+                if ship.lives == 0:
                     self.count +=1
-                    self.contour(ship, verb=True)
-                    print("Ship destroyed")
+                    self.contour(ship,verb=True)
+                    print("Ship destroyed!")
                     return False
                 else:
-                    print("Ship wounded")
+                    print("Ship wounded!")
                     return True
 
         self.field[d.x][d.y] = '.'
-        print("Miss")
+        print("Miss!")
         return False
 
     def begin(self):
         self.busy = []
+
+    def defeat(self):
+        return self.count == len(self.ships)
+
 
 class Player:
     def __init__(self, board, enemy):
@@ -144,7 +147,7 @@ class Player:
         self.enemy = enemy
 
     def ask(self):
-        raise NotImplementedError
+        raise NotImplementedError()
 
     def move(self):
         while True:
@@ -162,40 +165,114 @@ class User(Player):
         while True:
             cords = input("Enter x,y coordinates for shoot").split()
             if len(cords) != 2:
-                print("Enter two digits from 1 to 6")
+                print("Enter two coordinates")
                 continue
+
             x, y = cords
-            if not x.isdigit() and y.isdigit():
-                print("Enter two digits from 1 to 6")
+
+            if not (x.isdigit()) or not (y.isdigit()):
+                print("Enter digits")
                 continue
+
             x, y = int(x), int(y)
-            if x < 1 or x > 6 and y < 1 or y > 6:
-                print("Enter two digits from 1 to 6")
-                continue
-            else:
-                return x, y
+
+            return Dot(x - 1, y - 1)
 
 
-class Ai(Player):
-    def ask():
-        x, y = random.randint(1, 6), random.randint(1, 6)
-        return x, y
+class AI(Player):
+    def ask(self):
+        d = Dot(randint(0, 5), randint(0, 5))
+        print(f"Ai move: {d.x + 1} {d.y + 1}")
+        return d
 
 
 
 
 class Game:
-    def welcome(self):
+    def __init__(self, size = 6,):
+        self.size = size
+        self.lens = [3, 2, 2, 1, 1, 1, 1]
+        player = self.random_board()
+        comp = self.random_board()
+        comp.hid = 1
+
+        self.ai = AI(comp, player)
+        self.us = User(player, comp)
+
+    def try_board(self):
+        board = Board(size = self.size)
+        attempts = 0
+        for l in lens:
+            while True:
+                attempts += 1
+                if attempts > 2000:
+                    return None
+                ship = Ship(Dot(randint(0, self.size), randint(0, self.size)), l, randint(0, 1))
+                try:
+                    board.add_ship(ship)
+                    break
+                except BoardWrongShipException:
+                    pass
+        board.begin()
+        return board
+
+    def random_board(self):
+        board = None
+        while board is None:
+            board = self.try_board()
+        return board
+
+    def welcom(self):
         print("---------------")
         print("--- Welcome ---")
         print("----- to ------")
         print("- SEA BATTLE --")
         print("---- GAME! ----")
         print("---------------")
+        print("- x - stroke  -")
+        print("- y - column  -")
+        print("---------------")
 
-    def random_board(self):
+    def print_board(self):
+        print("-" * 20)
+        print("User`s board:")
+        print(self.us.board)
+        print("-" * 20)
+        print("Ai`s board:")
+        print(self.ai.board)
 
-    def greet(self):
+
     def loop(self):
-    def start(self):
+        num = 0
+        while True:
+            self.print_board()
+            if num % 2 == 0:
+                print("User`s move")
+                repeat = self.us.move()
+            else:
+                print("Ai`s move")
+                repeat = self.ai.move()
+            if repeat:
+                num -= 1
 
+            if self.ai.board.defeat():
+                self.print_board()
+                print("-" * 20)
+                print("User win!")
+                break
+
+            if self.us.board.defeat():
+                self.print_board()
+                print("-" * 20)
+                print("AI win!")
+                break
+
+            num += 1
+
+    def start(self):
+        self.welcom()
+        self.loop()
+
+
+g = Game()
+g.start()
