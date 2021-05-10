@@ -1,114 +1,64 @@
-import random
+# Создадим класс Queue - нужная нам очередь
+class Queue:
+    # Конструктор нашего класса, в нём происходит нужная инициализация объекта
+    def __init__(self, max_size):
+        self.max_size = max_size  # размер очереди
+        self.task_num = 0  # будем хранить сквозной номер задачи
 
+        self.tasks = [0 for _ in range(self.max_size)]  # инициализируем список с нулевыми элементами
+        self.head = 0  # указатель на начало очереди
+        self.tail = 0  # указатель на элемент следующий за концом очереди
 
-class BoardException(Exception):
-    pass
+    def is_empty(self):
+        return self.head == self.tail and self.tasks[self.head] == 0
 
+    def size(self):
+        if self.is_empty():
+            return 0
+        elif self.head == self.tail:
+            return self.max_size
+        elif self.head > self.tail:
+            return self.max_size - self.head + self.tail
+        else:
+            return self.tail - self.head
 
-class BoardOutException(BoardException):
-    def __str__(self):
-        return "You shoot outside the board"
+    def add(self):
+        self.task_num += 1
+        self.tasks[self.tail] = self.task_num
+        self.tail += 1
 
+# Используем класс
+size = int(input("Определите размер очереди: "))
+q = Queue(size)
 
-class BoardUsedException(BoardException):
-    def __str__(self):
-        return "You've already shot this cage"
-
-class BoardWrongShipException(BoardException):
-    pass
-
-
-class Dot:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def __eq__(self, other):
-        return self.x == other.x and self.y == other.y
-
-    def __repr__(self):
-        return f"Dot({self.x}, {self.y})"
-
-
-class Ship:
-    def __init__(self, bow, l, dir):
-        self.l = l
-        self.bow = bow
-        self.dir = dir
-        self.life = l
-
-    @property
-    def dots(self):
-        ship_dots = []
-        for i in range(self.l):
-            cur_x = self.bow.x
-            cur_y = self.bow.y
-
-            if self.dir == 0:
-                cur_x += i
-
-            elif self.dir == 1:
-                cur_y += i
-
-            ship_dots.append(Dot(cur_x, cur_y))
-
-        return ship_dots
-
-    def shooten(self, shot):
-        return shot in self.dots
-
-
-class Board:
-    def __init__(self, hid=False, size=6):
-        self.size = size
-        self.hid = hid
-
-        self.count = 0
-        self.field = [['O']* self.size for _ in range(self.size)]
-        self.ships =[]
-        self.busy = []
-
-    def __str__(self):
-        res = "     1   2   3   4   5   6  "
-        for i, row in enumerate(self.field):
-            res += f"\n {i + 1} | " + " | ".join(row) + " |"
-
-        if self.hid:
-            res = res.replace("■", "0")
-
-        return res
-
-
-    def out(self, dot):
-        return not ((0 <= dot.x < self.size) and (0 <= dot.y < self.size))
-
-
-    def contour(self, ship, verb=False):
-        near = [
-            (-1, -1), (-1, 0), (-1, 1),
-            (0, -1), (0, 0), (0, 1),
-            (1, -1), (1, 0), (1, 1)
-        ]
-        for d in ship.dots:
-            for dx, dy in near:
-                cur = Dot(d.x + dx, d.y + dy)
-                if not (self.out(cur)) and cur not in self.busy:
-                    if verb:
-                        self.field[cur.x][cur.y] = '.'
-                    self.busy.append(cur)
-
-    def add_ship(self, ship):
-        for d in ship.dots:
-            if self.out(d) or d in self.busy:
-                raise BoardWrongShipException()
-        for d in ship.dots:
-            self.field[d.x][d.y] = "■"
-            self.busy.append(d)
-
-        self.ships.append(ship)
-        self.contour(ship)
-
-b = Board()
-b.add_ship(Ship(Dot(1, 2), 3, 0))
-b.add_ship(Ship(Dot(0, 0), 1, 0))
-print(b)
+while True:
+    cmd = input("Введите команду:")
+    if cmd == "empty":
+        if q.is_empty():
+            print("Очередь пустая")
+        else:
+            print("В очереди есть задачи")
+    elif cmd == "size":
+        print("Количество задач в очереди:", q.size())
+    elif cmd == "add":
+        if q.size() != q.max_size:
+            q.add()
+        else:
+            print("Очередь переполнена")
+    elif cmd == "show":
+        if q.is_empty():
+            print("Очередь пустая")
+        else:
+            q.show()
+    elif cmd == "do":
+        if q.is_empty():
+            print("Очередь пустая")
+        else:
+            q.do()
+    elif cmd == "exit":
+        for _ in range(q.size()):
+            q.do()
+        print("Очередь пустая. Завершение работы")
+        break
+    else:
+        print("Введена неверная команда")
