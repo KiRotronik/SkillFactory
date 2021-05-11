@@ -235,7 +235,7 @@ class Game:
 
     def print_board(self):
         print("-" * 20)
-        print("User`s board:", "Ai`s board:")
+        print("User`s board:")
         print(self.us.board)
         print("-" * 20)
         print("Ai`s board:")
@@ -276,3 +276,4 @@ class Game:
 
 g = Game()
 g.start()
+
