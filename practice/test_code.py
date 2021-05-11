@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Создадим класс Queue - нужная нам очередь
 class Queue:
     # Конструктор нашего класса, в нём происходит нужная инициализация объекта
@@ -74,3 +75,17 @@ while True:
         break
     else:
         print("Введена неверная команда")
+=======
+class SquareFactory:
+    @staticmethod
+    def side(a):
+        return Square(a)
+
+class Square:
+    def __init__(self, sa):
+        self.sname = sa
+
+pp = SquareFactory.side('5')
+print(pp.sname)
+
+>>>>>>> d
