@@ -200,9 +200,9 @@ class Game:
         self.us = User(player, comp)
 
     def try_board(self):
-        board = Board(size = self.size)
+        board = Board(size=self.size)
         attempts = 0
-        for l in lens:
+        for l in self.lens:
             while True:
                 attempts += 1
                 if attempts > 2000:
@@ -276,3 +276,4 @@ class Game:
 
 g = Game()
 g.start()
+
